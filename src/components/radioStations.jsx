@@ -17,7 +17,9 @@ const RadioStations = ({
   Nice,
   IndieRock,
   Kpop,
-  Taiki
+  Taiki,
+  BTS,
+  Hits
 }) => {
   return (
     <div className="radioList">
@@ -198,6 +200,30 @@ const RadioStations = ({
         >
           <img className="triangle" src={triangle} alt="" />
           K-POP
+        </motion.div>
+      </motion.div>
+
+      <motion.div animate={{ opacity: [0, 1] }} transition={{ delay: 1.15 }}>
+        <motion.div
+          whileHover={{ scale: 1.09 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={BTS}
+          className="station"
+        >
+          <img className="triangle" src={triangle} alt="" />
+          BTS
+        </motion.div>
+      </motion.div>
+
+      <motion.div animate={{ opacity: [0, 1] }} transition={{ delay: 1.15 }}>
+        <motion.div
+          whileHover={{ scale: 1.09 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={Hits}
+          className="station"
+        >
+          <img className="triangle" src={triangle} alt="" />
+         80's Hits
         </motion.div>
       </motion.div>
 

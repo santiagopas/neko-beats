@@ -290,6 +290,35 @@ function App() {
     setBtnClass2("playBtn2");
   };
 
+  const BTS = () => {
+    setVideo("//www.youtube.com/watch?v=e54zLsDa5E0");
+    setStationName("BTStation");
+    setYoutubeChannal("https://www.youtube.com/channel/UCfUGIcsUpU-QTye5B6CN3rw");
+    setLivestream(
+      "https://www.youtube.com/watch?v=IxtG_p3IQM4"
+    );
+    playLiveStream(true);
+    setPauseScreen("unpauseScreen");
+    setPlayPause(pauseImg);
+    setBtnClass("PlayPause2");
+    setBtnClass2("playBtn2");
+  };
+
+
+  const Hits = () => {
+    setVideo("//www.youtube.com/watch?v=Vcg7sLDTICk");
+    setStationName("80'S Hits");
+    setYoutubeChannal("https://www.youtube.com/channel/UC-ITe1nKavRL6-Sl2aE3LKA");
+    setLivestream(
+      "https://www.youtube.com/watch?v=oLyaNIdCQFI"
+    );
+    playLiveStream(true);
+    setPauseScreen("unpauseScreen");
+    setPlayPause(pauseImg);
+    setBtnClass("PlayPause2");
+    setBtnClass2("playBtn2");
+  };
+
   return (
     <div className="interfaceContainer">
       <div className="radioContainer">
@@ -312,6 +341,8 @@ function App() {
             IndieRock={rockIndie}
             Kpop={kpop}
             Taiki={Taiki}
+            BTS={BTS}
+            Hits={Hits}
           />
         </div>
         <div className="socialsContainer2">
