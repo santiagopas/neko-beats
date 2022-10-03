@@ -1,15 +1,14 @@
-import "./styles/index.css";
-import "./styles/audioControl.css";
+import "./styles/index.scss";
+import "./styles/audioControl.scss";
 import { useState } from "react";
 import AdditionSettings from "./components/additionalInfo";
 import PauseImage from "./components/pauseImage";
 import Loading from "./components/loadingImage";
-import RadioStations from "./components/radioStations";
+import RadioStations from "./components/radioStations/radioStations";
 import github from "./images/github.png";
 import play from "./images/playBtn.png";
 import AudioControls from "./components/audioControl";
 import pauseImg from "./images/pause.png";
-import { motion } from "framer-motion";
 import ReactPlayer from "react-player";
 
 
@@ -79,7 +78,7 @@ function App() {
   };
 
   const AmbientRenders = () => {
-    setVideo("https://www.youtube.com/watch?v=fKuI-HFVX1A");
+    setVideo("https://www.youtube.com/watch?v=XcoyRYIMfzw");
     setStationName("Ambient Renders");
     setYoutubeChannal(
       "https://www.youtube.com/channel/UCXbXfisDHV_gDjawCKTyTIw"
@@ -263,11 +262,11 @@ function App() {
   };
 
   const kpop = () => {
-    setVideo("//www.youtube.com/watch?v=RFHj_vjVxqM");
+    setVideo("//www.youtube.com/watch?v=bwmSjveL3Lc&list=RDQMNmyLqgPmcnE&start_radio=1");
     setStationName("kpop");
     setYoutubeChannal("https://www.youtube.com/channel/UCuPNoEZUan3WybeJawo9gNQ");
     setLivestream(
-      "https://www.youtube.com/watch?v=RFHj_vjVxqM"
+      "https://www.youtube.com/watch?v=bwmSjveL3Lc&list=RDQMNmyLqgPmcnE&start_radio=1"
     );
     playLiveStream(true);
     setPauseScreen("unpauseScreen");
@@ -321,9 +320,10 @@ function App() {
 
   return (
     <div className="interfaceContainer">
-      <div className="radioContainer">
-        <div className="logo">NekoBeats</div>
-        <div className="subHeading"></div>
+      <aside className="radioContainer">
+
+        <h1 className="logo">NekoBeats</h1>
+
         <div className="radioStationsContainer">
           <RadioStations
             Ambient={AmbientRenders}
@@ -345,7 +345,8 @@ function App() {
             Hits={Hits}
           />
         </div>
-        <div className="socialsContainer2">
+      </aside>
+      {/* <div className="socialsContainer2">
           <div className="socials">
             <motion.div
               whileHover={{ scale: 1.09 }}
@@ -359,8 +360,7 @@ function App() {
               Github
             </motion.div>
           </div>
-        </div>
-      </div>
+        </div> */}
       <div className="audioControlContainer">
         <AudioControls
           plauPause={handlePausePlaySwitch}
@@ -375,6 +375,7 @@ function App() {
         <PauseImage />
         <p style={{ marginTop: "0rem" }}>Música Pausada</p>
       </div>
+
       <AdditionSettings youtube={youtubeChannal} radio={stationName} />
       <div class="videoContainer">
         <ReactPlayer

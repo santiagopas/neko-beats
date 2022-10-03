@@ -13,7 +13,9 @@
     "react-dom": "^17.0.2",
     "react-player": "^2.9.0",
     "redux": "^4.1.2",
-    "video-react": "^0.15.0"
+    "sass": "^1.55.0",
+    "video-react": "^0.15.0",
+    "vite-plugin-sass-dts": "^1.1.42"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
