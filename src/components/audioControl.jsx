@@ -18,12 +18,14 @@ const AudioControls = ({
     let classNameVol = e.target.className;
     console.log(classNameVol);
     if (classNameVol === "volumeOn" || classNameVol === "audioOnImg") {
+      console.log("mute");
       setVolumeImg(mute);
       setUnmute("volumeOff");
       setUnmute2("audioOffImg");
       lastPlayedVolume = volume;
       setVolume(0);
     } else if (classNameVol === "volumeOff" || classNameVol === "audioOffImg") {
+      console.log("unmute");
       setVolumeImg(volumeOn);
       setUnmute("volumeOn");
       setUnmute2("audioOnImg");
@@ -35,7 +37,7 @@ const AudioControls = ({
   const [muteCheck2, setUnmute2] = useState("audioOnImg");
   const [volumeImg, setVolumeImg] = useState(volumeOn);
   const [volume, setVolume] = useState(1);
-
+console.log('volume: ', volume);
   return (
     <div className="audioControl">
       <motion.div

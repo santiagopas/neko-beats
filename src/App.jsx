@@ -5,7 +5,7 @@ import AdditionSettings from "./components/additionalInfo";
 import PauseImage from "./components/pauseImage";
 import Loading from "./components/loadingImage";
 import RadioStations from "./components/radioStations/radioStations";
-import github from "./images/github.png";
+
 import play from "./images/playBtn.png";
 import AudioControls from "./components/audioControl";
 import pauseImg from "./images/pause.png";
@@ -20,13 +20,13 @@ function App() {
   const [livestream, playLiveStream] = useState(false);
   const [pauseScreen, setPauseScreen] = useState("pauseScreen");
   const [currentLivestream, setLivestream] = useState(
-    "https://www.youtube.com/watch?v=5qap5aO4i9A&ab_channel=LofiGirl"
+    "https://www.youtube.com/watch?v=i43tkaTXtwI"
   );
 
   const [stationName, setStationName] = useState("LofiGirl");
 
 
-  const [youtubeChannal, setYoutubeChannal] = useState("");
+  const [youtubeChannal, setYoutubeChannal] = useState("https://yt3.googleusercontent.com/gY8H7K-3Eg3olVftRBiqqFe-N5d9Rx90jAsrfQuxDa4m32Wm-kWK6AQJhwchvYLf-H4EjGhCSw=s176-c-k-c0x00ffffff-no-rj");
 
   const handlePausePlaySwitch = (e) => {
     let className = e.target.className;
@@ -56,19 +56,19 @@ function App() {
   };
 
   const [video, setVideo] = useState(
-    `//www.youtube.com/watch?v=DWcJFNfaw9c`
+    `/https://www.youtube.com/watch?v=i43tkaTXtwI`
   );
 
   // <------------- Radio Change section -------------->
 
   const LofiGirlVideo = () => {
-    setVideo("//www.youtube.com/watch?v=5qap5aO4i9A");
+    setVideo("https://youtu.be/MVPTGNGiI-4");
     setStationName("LofiGirl");
     setYoutubeChannal(
-      "https://www.youtube.com/channel/UCSJ4gkVC6NrvII8umztf0Ow"
+      "https://yt3.googleusercontent.com/gY8H7K-3Eg3olVftRBiqqFe-N5d9Rx90jAsrfQuxDa4m32Wm-kWK6AQJhwchvYLf-H4EjGhCSw=s176-c-k-c0x00ffffff-no-rj"
     );
     setLivestream(
-      "https://www.youtube.com/watch?v=5qap5aO4i9A"
+      "https://www.youtube.com/watch?v=MVPTGNGiI-4"
     );
     playLiveStream(true);
     setPauseScreen("unpauseScreen");
@@ -377,19 +377,16 @@ function App() {
       </div>
 
       <AdditionSettings youtube={youtubeChannal} radio={stationName} />
-      <div class="videoContainer">
+      <div className="videoContainer">
         <ReactPlayer
           className="vid"
           width="140%"
           height="140%"
-          loop="true"
+          loop={true}
           playing={livestream}
-          volume="mute"
           url={video}
         />
       </div>
-
-
 
       <Loading />
     </div>
