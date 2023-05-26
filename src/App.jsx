@@ -13,7 +13,7 @@ import ReactPlayer from "react-player";
 
 
 function App() {
-  const [BtnClass, setBtnClass] = useState("PlayPause"); //pause play change
+  const [BtnClass, setBtnClass] = useState("PlayPause");
   const [BtnClass2, setBtnClass2] = useState("playBtn");
   const [playPauseImg, setPlayPause] = useState(play);
 
@@ -346,21 +346,7 @@ function App() {
           />
         </div>
       </aside>
-      {/* <div className="socialsContainer2">
-          <div className="socials">
-            <motion.div
-              whileHover={{ scale: 1.09 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() => {
-                window.open("https://github.com/santiagopas");
-              }}
-              className="link"
-            >
-              <img className="githubLogo" src={github} alt="github" />
-              Github
-            </motion.div>
-          </div>
-        </div> */}
+
       <div className="audioControlContainer">
         <AudioControls
           plauPause={handlePausePlaySwitch}
@@ -373,7 +359,7 @@ function App() {
       </div>
       <div className={pauseScreen}>
         <PauseImage />
-        <p style={{ marginTop: "0rem" }}>Música Pausada</p>
+        <p>Música Pausada</p>
       </div>
 
       <AdditionSettings youtube={youtubeChannal} radio={stationName} />
