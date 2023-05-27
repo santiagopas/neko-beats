@@ -7,16 +7,16 @@ import volumeOn from "../images/volumeOn.png";
 let lastPlayedVolume = 0;
 
 const AudioControls = ({
-  plauPause,
+  playPause,
   buttonClass,
   playPauseImage,
   buttonClass2,
   LiveStreamAudio,
   LiveStreamPlayPause,
+  livestream
 }) => {
   const handleMute = (e) => {
     let classNameVol = e.target.className;
-    console.log(classNameVol);
     if (classNameVol === "volumeOn" || classNameVol === "audioOnImg") {
       console.log("mute");
       setVolumeImg(mute);
@@ -25,7 +25,6 @@ const AudioControls = ({
       lastPlayedVolume = volume;
       setVolume(0);
     } else if (classNameVol === "volumeOff" || classNameVol === "audioOffImg") {
-      console.log("unmute");
       setVolumeImg(volumeOn);
       setUnmute("volumeOn");
       setUnmute2("audioOnImg");
@@ -33,50 +32,63 @@ const AudioControls = ({
     }
   };
 
-  const [muteCheck, setUnmute] = useState("volumeOn"); //unmute/mute change
+  const [muteCheck, setUnmute] = useState("volumeOn");
   const [muteCheck2, setUnmute2] = useState("audioOnImg");
   const [volumeImg, setVolumeImg] = useState(volumeOn);
   const [volume, setVolume] = useState(1);
-console.log('volume: ', volume);
+
+  console.log(LiveStreamPlayPause);
   return (
-    <div className="audioControl">
-      <motion.div
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.9 }}
-        onClick={plauPause}
-        className={buttonClass}
-      >
-        <img src={playPauseImage} className={buttonClass2} alt="" />
-      </motion.div>
-      <motion.div
-        whileHover={{ scale: 1.09 }}
-        whileTap={{ scale: 0.9 }}
-        onClick={handleMute}
-        className={muteCheck}
-      >
-        <img className={muteCheck2} src={volumeImg} alt="" />
-      </motion.div>
-      <div>
-        <input
-          className="volumeDial"
-          type="range"
-          min={0}
-          max={1}
-          value={volume}
-          step={0.01}
-          onChange={(event) => {
-            setVolume(event.target.valueAsNumber);
-          }}
-        />
+    <>
+      <div className="audioControl">
+        <motion.div
+          whileHover={{ scale: 1.03 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={playPause}
+          className={buttonClass}
+        >
+          <img src={playPauseImage} className={buttonClass2} alt="" />
+        </motion.div>
+        <motion.div
+          whileHover={{ scale: 1.09 }}
+          whileTap={{ scale: 0.9 }}
+          onClick={handleMute}
+          className={muteCheck}
+        >
+          <img className={muteCheck2} src={volumeImg} alt="" />
+        </motion.div>
+        <div>
+          <input
+            className="volumeDial"
+            type="range"
+            min={0}
+            max={1}
+            value={volume}
+            step={0.01}
+            onChange={(event) => {
+              setVolume(event.target.valueAsNumber);
+            }}
+          />
+        </div>
       </div>
-      <ReactPlayer
-        className="liveStreamPlayer"
-        playing={LiveStreamPlayPause}
-        volume={volume}
-        url={LiveStreamAudio}
-      />
-    </div>
+      {
+        LiveStreamPlayPause ? (
+          <ReactPlayer
+            className="liveStreamPlayer"
+            playing={LiveStreamPlayPause}
+            volume={volume}
+            url={LiveStreamAudio}
+            controls={true}
+          />) : null
+      }
+    </>
   );
 };
 
 export default AudioControls;
+//siguiente cancion document.querySelector('a.ytp-next-button.ytp-button').click()
+//anterior cancion document.querySelector('a.ytp-prev-button.ytp-button').click()
+
+
+
+// .html5-video-player .video-click-tracking, .html5-video-player .video-stream

@@ -1,13 +1,13 @@
 import "./styles/index.scss";
 import "./styles/audioControl.scss";
 import { useState } from "react";
-import AdditionSettings from "./components/additionalInfo";
-import PauseImage from "./components/pauseImage";
-import Loading from "./components/loadingImage";
-import RadioStations from "./components/radioStations/radioStations";
-
+import AdditionSettings from "./components/AdditionalInfo";
+import PauseImage from "./components/PauseImage";
+// import Loading from "./components/LoadingImage";
+import RadioStations from "./components/radioStations/RadioStations";
 import play from "./images/playBtn.png";
 import AudioControls from "./components/audioControl";
+
 import pauseImg from "./images/pause.png";
 import ReactPlayer from "react-player";
 
@@ -19,15 +19,23 @@ function App() {
 
   const [livestream, playLiveStream] = useState(false);
   const [pauseScreen, setPauseScreen] = useState("pauseScreen");
-  const [currentLivestream, setLivestream] = useState(
-    "https://www.youtube.com/watch?v=i43tkaTXtwI"
-  );
+  const [currentLivestream, setLivestream] = useState("");
+  console.log('currentLivestream: ', currentLivestream);
+  const [stationName, setStationName] = useState("");
+  const [youtubeChannal, setYoutubeChannal] = useState("");
 
-  const [stationName, setStationName] = useState("LofiGirl");
 
 
-  const [youtubeChannal, setYoutubeChannal] = useState("https://yt3.googleusercontent.com/gY8H7K-3Eg3olVftRBiqqFe-N5d9Rx90jAsrfQuxDa4m32Wm-kWK6AQJhwchvYLf-H4EjGhCSw=s176-c-k-c0x00ffffff-no-rj");
+  const start = () => {
+    playLiveStream(false);
+    playLiveStream(true);
+    setPauseScreen("unpauseScreen");
+  };
 
+  const pause = () => {
+    setPauseScreen("pauseScreen");
+    playLiveStream(false);
+  };
   const handlePausePlaySwitch = (e) => {
     let className = e.target.className;
 
@@ -44,32 +52,15 @@ function App() {
     }
   };
 
-  const start = () => {
-    playLiveStream(false);
-    playLiveStream(true);
-    setPauseScreen("unpauseScreen");
-  };
 
-  const pause = () => {
-    setPauseScreen("pauseScreen");
-    playLiveStream(false);
-  };
+  const [video, setVideo] = useState("");
 
-  const [video, setVideo] = useState(
-    `/https://www.youtube.com/watch?v=i43tkaTXtwI`
-  );
-
-  // <------------- Radio Change section -------------->
 
   const LofiGirlVideo = () => {
     setVideo("https://youtu.be/MVPTGNGiI-4");
-    setStationName("LofiGirl");
-    setYoutubeChannal(
-      "https://yt3.googleusercontent.com/gY8H7K-3Eg3olVftRBiqqFe-N5d9Rx90jAsrfQuxDa4m32Wm-kWK6AQJhwchvYLf-H4EjGhCSw=s176-c-k-c0x00ffffff-no-rj"
-    );
-    setLivestream(
-      "https://www.youtube.com/watch?v=MVPTGNGiI-4"
-    );
+    setStationName("HifiBoy");
+    setYoutubeChannal("");
+    setLivestream("https://youtu.be/MVPTGNGiI-4");
     playLiveStream(true);
     setPauseScreen("unpauseScreen");
     setPlayPause(pauseImg);
@@ -229,10 +220,6 @@ function App() {
     setBtnClass2("playBtn2");
   };
 
-  //setVideo("//www.youtube.com/embed/5B7Rsw0L2r8?autoplay=1&mute=1&start=0"); VIDEO SHGINGEKI
-  // setVideo("//www.youtube.com/watch?v=-WhU5nfpE2Q"); VIDEO MADARA
-
-  //setVideo("//www.youtube.com/watch?v=PHsaY8VXvOc"); VIDEO HOWL
   const animeVibe = () => {
     setVideo("//www.youtube.com/watch?v=PHsaY8VXvOc");
     setStationName("AnimeVibe");
@@ -349,7 +336,7 @@ function App() {
 
       <div className="audioControlContainer">
         <AudioControls
-          plauPause={handlePausePlaySwitch}
+          playPause={handlePausePlaySwitch}
           buttonClass={BtnClass}
           playPauseImage={playPauseImg}
           buttonClass2={BtnClass2}
@@ -357,24 +344,38 @@ function App() {
           LiveStreamPlayPause={livestream}
         />
       </div>
-      <div className={pauseScreen}>
-        <PauseImage />
-        <p>Música Pausada</p>
-      </div>
-
-      <AdditionSettings youtube={youtubeChannal} radio={stationName} />
-      <div className="videoContainer">
-        <ReactPlayer
+      {
+        pauseScreen === "unpauseScreen" ? null : (
+          <div className={pauseScreen}>
+            <PauseImage />
+            <p>Música Pausada</p>
+          </div>
+        )
+      }
+      <AdditionSettings youtube={youtubeChannal} radio={stationName} 
+      playPause={handlePausePlaySwitch} buttonClass={BtnClass} playPauseImage={playPauseImg} buttonClass2={BtnClass2} LiveStreamAudio={currentLivestream} LiveStreamPlayPause={livestream} pauseScreen={pauseScreen}   />
+        {/* <div className="videoContainer">
+       <ReactPlayer
           className="vid"
-          width="140%"
-          height="140%"
           loop={true}
           playing={livestream}
+          volume={0.0}
+          url={video}
+          width="140%"
+          height="140%"
+        /> 
+          </div> */}
+        {/*      <ReactPlayer
+          className="vid"
+          
+          loop="true"
+          playing={livestream}
+          volume="mute"
           url={video}
         />
-      </div>
+    */}
 
-      <Loading />
+
     </div>
   );
 }
