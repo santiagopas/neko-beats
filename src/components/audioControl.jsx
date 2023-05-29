@@ -73,22 +73,18 @@ const AudioControls = ({
       </div>
       {
         LiveStreamPlayPause ? (
-          <ReactPlayer
-            className="liveStreamPlayer"
-            playing={LiveStreamPlayPause}
-            volume={volume}
-            url={LiveStreamAudio}
-            controls={true}
-          />) : null
+            <ReactPlayer
+              className="liveStreamPlayer"
+              style={{ backgroundImage: "url(https://art.pixilart.com/sr26e544e4b579e.gif)" }}
+              playing={LiveStreamPlayPause}
+              volume={volume}
+              url={LiveStreamAudio}
+              controls={true}
+            />
+        ) : null
       }
     </>
   );
 };
 
 export default AudioControls;
-//siguiente cancion document.querySelector('a.ytp-next-button.ytp-button').click()
-//anterior cancion document.querySelector('a.ytp-prev-button.ytp-button').click()
-
-
-
-// .html5-video-player .video-click-tracking, .html5-video-player .video-stream

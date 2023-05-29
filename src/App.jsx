@@ -7,12 +7,15 @@ import PauseImage from "./components/PauseImage";
 import RadioStations from "./components/radioStations/RadioStations";
 import play from "./images/playBtn.png";
 import AudioControls from "./components/audioControl";
-
 import pauseImg from "./images/pause.png";
 import ReactPlayer from "react-player";
 
 
 function App() {
+
+  const player = document.querySelector('.liveStreamPlayer')
+
+
   const [BtnClass, setBtnClass] = useState("PlayPause");
   const [BtnClass2, setBtnClass2] = useState("playBtn");
   const [playPauseImg, setPlayPause] = useState(play);
@@ -44,6 +47,8 @@ function App() {
       setBtnClass("PlayPause2");
       setBtnClass2("playBtn2");
       start();
+      player.firstChild.classList.add('playerContainer')
+      console.log(player.firstChild)
     } else if (className === "PlayPause2" || className === "playBtn2") {
       setPlayPause(play);
       setBtnClass("PlayPause");
@@ -75,7 +80,7 @@ function App() {
       "https://www.youtube.com/channel/UCXbXfisDHV_gDjawCKTyTIw"
     );
     setLivestream(
-      "https://www.youtube.com/watch?v=pJH-j2CnwBY&ab_channel=RelaxingAmbienceASMR"
+      "https://youtu.be/MVPTGNGiI-4"
     );
     playLiveStream(true);
     setPauseScreen("unpauseScreen");
@@ -352,30 +357,8 @@ function App() {
           </div>
         )
       }
-      <AdditionSettings youtube={youtubeChannal} radio={stationName} 
-      playPause={handlePausePlaySwitch} buttonClass={BtnClass} playPauseImage={playPauseImg} buttonClass2={BtnClass2} LiveStreamAudio={currentLivestream} LiveStreamPlayPause={livestream} pauseScreen={pauseScreen}   />
-        {/* <div className="videoContainer">
-       <ReactPlayer
-          className="vid"
-          loop={true}
-          playing={livestream}
-          volume={0.0}
-          url={video}
-          width="140%"
-          height="140%"
-        /> 
-          </div> */}
-        {/*      <ReactPlayer
-          className="vid"
-          
-          loop="true"
-          playing={livestream}
-          volume="mute"
-          url={video}
-        />
-    */}
-
-
+      <AdditionSettings youtube={youtubeChannal} radio={stationName}
+        playPause={handlePausePlaySwitch} buttonClass={BtnClass} playPauseImage={playPauseImg} buttonClass2={BtnClass2} LiveStreamAudio={currentLivestream} LiveStreamPlayPause={livestream} pauseScreen={pauseScreen} />
     </div>
   );
 }
