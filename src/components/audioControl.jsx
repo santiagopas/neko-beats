@@ -37,7 +37,7 @@ const AudioControls = ({
   const [volumeImg, setVolumeImg] = useState(volumeOn);
   const [volume, setVolume] = useState(1);
 
-  console.log(LiveStreamPlayPause);
+
   return (
     <>
       <div className="audioControl">
