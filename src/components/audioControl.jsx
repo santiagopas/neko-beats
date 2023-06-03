@@ -47,7 +47,7 @@ const AudioControls = ({
           onClick={playPause}
           className={buttonClass}
         >
-          <img src={playPauseImage} className={buttonClass2} alt="" />
+          <img width={40} height={40} src={playPauseImage} className={buttonClass2} alt="playPause" />
         </motion.div>
         <motion.div
           whileHover={{ scale: 1.09 }}
@@ -55,7 +55,7 @@ const AudioControls = ({
           onClick={handleMute}
           className={muteCheck}
         >
-          <img className={muteCheck2} src={volumeImg} alt="" />
+          <img width={10} height={10} className={muteCheck2} src={volumeImg} alt="volume" />
         </motion.div>
         <div>
           <input

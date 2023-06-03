@@ -3,7 +3,7 @@ import "./styles/audioControl.scss";
 import { useState } from "react";
 import AdditionSettings from "./components/AdditionalInfo";
 import PauseImage from "./components/PauseImage";
-// import Loading from "./components/LoadingImage";
+
 import RadioStations from "./components/radioStations/RadioStations";
 import play from "./images/playBtn.png";
 import AudioControls from "./components/audioControl";
@@ -47,8 +47,7 @@ function App() {
       setBtnClass("PlayPause2");
       setBtnClass2("playBtn2");
       start();
-      player.firstChild.classList.add('playerContainer')
-      console.log(player.firstChild)
+      // player.firstChild.classList.add('playerContainer')
     } else if (className === "PlayPause2" || className === "playBtn2") {
       setPlayPause(play);
       setBtnClass("PlayPause");
@@ -58,11 +57,11 @@ function App() {
   };
 
 
-  const [video, setVideo] = useState("");
+  // const [video, setVideo] = useState("");
 
 
   const LofiGirlVideo = () => {
-    setVideo("https://youtu.be/MVPTGNGiI-4");
+    // setVideo("https://youtu.be/MVPTGNGiI-4");
     setStationName("HifiBoy");
     setYoutubeChannal("");
     setLivestream("https://youtu.be/MVPTGNGiI-4");
@@ -74,7 +73,7 @@ function App() {
   };
 
   const AmbientRenders = () => {
-    setVideo("https://www.youtube.com/watch?v=XcoyRYIMfzw");
+    // setVideo("https://www.youtube.com/watch?v=XcoyRYIMfzw");
     setStationName("Ambient Renders");
     setYoutubeChannal(
       "https://www.youtube.com/channel/UCXbXfisDHV_gDjawCKTyTIw"
@@ -90,7 +89,7 @@ function App() {
   };
 
   const IvyRecords = () => {
-    setVideo("//www.youtube.com/embed/F1B9Fk_SgI0?autoplay=1&mute=1&start=10");
+    // setVideo("//www.youtube.com/embed/F1B9Fk_SgI0?autoplay=1&mute=1&start=10");
     setStationName("Ivy Records");
     setYoutubeChannal(
       "https://www.youtube.com/channel/UCv7qaGzuEfLhKxAZf4eZONg"
@@ -106,7 +105,7 @@ function App() {
   };
 
   const ChillHiphop = () => {
-    setVideo("//www.youtube.com/embed/iEGFFyv0MH4?autoplay=1&mute=1&start=1");
+    // setVideo("//www.youtube.com/embed/iEGFFyv0MH4?autoplay=1&mute=1&start=1");
     setStationName("ChillHop Music");
     setYoutubeChannal("https://www.youtube.com/c/Chillhopdotcom/videos");
     setLivestream(
@@ -120,7 +119,7 @@ function App() {
   };
 
   const HFiveGOneFunc = () => {
-    setVideo("//www.youtube.com/embed/lniKA4QHuxg?autoplay=1&mute=1&start=1");
+    // setVideo("//www.youtube.com/embed/lniKA4QHuxg?autoplay=1&mute=1&start=1");
     setStationName("H5G1 Music");
     setYoutubeChannal(
       "https://www.youtube.com/channel/UCIPy2w-XdvaU73L3nAK1-0g"
@@ -136,7 +135,7 @@ function App() {
   };
 
   const StudyMD = () => {
-    setVideo("//www.youtube.com/embed/PcxpLIv4CNU?autoplay=1&mute=1&start=1");
+    // setVideo("//www.youtube.com/embed/PcxpLIv4CNU?autoplay=1&mute=1&start=1");
     setStationName("StudyMD");
     setYoutubeChannal(
       "https://www.youtube.com/channel/UC5CRP-6oxYenIgBj17CkBZg"
@@ -152,7 +151,7 @@ function App() {
   };
 
   const astralThrob = () => {
-    setVideo("//www.youtube.com/embed/dIf_ZQZCSoM?autoplay=1&mute=1&start=1");
+    // setVideo("//www.youtube.com/embed/dIf_ZQZCSoM?autoplay=1&mute=1&start=1");
     setStationName("Astral Throb");
     setYoutubeChannal("https://www.youtube.com/c/AstralThrob");
     setLivestream(
@@ -166,7 +165,7 @@ function App() {
   };
 
   const chilledCow = () => {
-    setVideo("//www.youtube.com/embed/lTRiuFIWV54?autoplay=1&mute=1&start=1");
+    // setVideo("//www.youtube.com/embed/lTRiuFIWV54?autoplay=1&mute=1&start=1");
     setStationName("Chilled Cow");
     setYoutubeChannal("https://www.youtube.com/c/LofiGirl");
     setLivestream(
@@ -180,7 +179,7 @@ function App() {
   };
 
   const theJazzHopCafe = () => {
-    setVideo("//www.youtube.com/embed/U8HBZOTZrf0?autoplay=1&mute=1&start=1");
+    // setVideo("//www.youtube.com/embed/U8HBZOTZrf0?autoplay=1&mute=1&start=1");
     setStationName("theJazz Cafe");
     setYoutubeChannal("https://www.youtube.com/c/TheJazzHopCaf%C3%A9");
     setLivestream(
@@ -194,7 +193,7 @@ function App() {
   };
 
   const CloudHop = () => {
-    setVideo("//www.youtube.com/embed/70NcGd759Bc?autoplay=1&mute=1&start=1");
+    // setVideo("//www.youtube.com/embed/70NcGd759Bc?autoplay=1&mute=1&start=1");
     setStationName("CloudHop");
     setYoutubeChannal(
       "https://www.youtube.com/channel/UCWRqPtvnyVUS9zpADA-9oaw"
@@ -210,7 +209,7 @@ function App() {
   };
 
   const NiceGuys = () => {
-    setVideo("//www.youtube.com/embed/3n1aC2TYXIA?autoplay=1&mute=1&start=1");
+    // setVideo("//www.youtube.com/embed/3n1aC2TYXIA?autoplay=1&mute=1&start=1");
     setStationName("Nice Guys");
     setYoutubeChannal(
       "https://www.youtube.com/channel/UCMmt12UKW571UWtJAgWkWqg"
@@ -226,7 +225,7 @@ function App() {
   };
 
   const animeVibe = () => {
-    setVideo("//www.youtube.com/watch?v=PHsaY8VXvOc");
+    // setVideo("//www.youtube.com/watch?v=PHsaY8VXvOc");
     setStationName("AnimeVibe");
     setYoutubeChannal("https://www.youtube.com/c/AnimeVibe");
     setLivestream(
@@ -240,7 +239,7 @@ function App() {
   };
 
   const rockIndie = () => {
-    setVideo("//www.youtube.com/watch?v=1itSqkbXIlU");
+    // setVideo("//www.youtube.com/watch?v=1itSqkbXIlU");
     setStationName("rock Indie");
     setYoutubeChannal("https://www.youtube.com/watch?v=1itSqkbXIlU");
     setLivestream(
@@ -254,7 +253,7 @@ function App() {
   };
 
   const kpop = () => {
-    setVideo("//www.youtube.com/watch?v=bwmSjveL3Lc&list=RDQMNmyLqgPmcnE&start_radio=1");
+    // setVideo("//www.youtube.com/watch?v=bwmSjveL3Lc&list=RDQMNmyLqgPmcnE&start_radio=1");
     setStationName("kpop");
     setYoutubeChannal("https://www.youtube.com/channel/UCuPNoEZUan3WybeJawo9gNQ");
     setLivestream(
@@ -268,7 +267,7 @@ function App() {
   };
 
   const Taiki = () => {
-    setVideo("https://www.youtube.com/watch?v=qH3fETPsqXU");
+    // setVideo("https://www.youtube.com/watch?v=qH3fETPsqXU");
     setStationName("Chill With Taiki");
     setYoutubeChannal("https://www.youtube.com/channel/UCKdURsjh1xT1vInYBy82n6g");
     setLivestream(
@@ -282,7 +281,7 @@ function App() {
   };
 
   const BTS = () => {
-    setVideo("//www.youtube.com/watch?v=e54zLsDa5E0");
+    // setVideo("//www.youtube.com/watch?v=e54zLsDa5E0");
     setStationName("BTStation");
     setYoutubeChannal("https://www.youtube.com/channel/UCfUGIcsUpU-QTye5B6CN3rw");
     setLivestream(
@@ -297,7 +296,7 @@ function App() {
 
 
   const Hits = () => {
-    setVideo("//www.youtube.com/watch?v=Vcg7sLDTICk");
+    // setVideo("//www.youtube.com/watch?v=Vcg7sLDTICk");
     setStationName("80'S Hits");
     setYoutubeChannal("https://www.youtube.com/channel/UC-ITe1nKavRL6-Sl2aE3LKA");
     setLivestream(

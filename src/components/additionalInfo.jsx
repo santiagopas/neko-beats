@@ -103,7 +103,7 @@ const AdditionSettings = ({ youtube, radio }) => {
             />
           ) : null}
           <div className="otherSounds" onClick={handleClick}>
-            <img src={rain} className="imgSizing" alt="lluvia" />
+            <img width={10} height={10} src={rain} className="imgSizing" alt="lluvia" />
           </div>
         </div>
         <div className="allign">
@@ -121,7 +121,7 @@ const AdditionSettings = ({ youtube, radio }) => {
               step={0.2}
             />) : null}
           <div className="otherSounds" onClick={handleClick}>
-            <img src={waves} className="imgSizing" alt="mar" />
+            <img width={10} height={10} src={waves} className="imgSizing" alt="mar" />
           </div>
         </div>
         <div className="allign">
@@ -139,7 +139,7 @@ const AdditionSettings = ({ youtube, radio }) => {
               step={0.2}
             />) : null}
           <div className="otherSounds" onClick={handleClick}>
-            <img src={WhiteNoise} className="imgSizing" alt="ruido blanco" />
+            <img width={10} height={10} src={WhiteNoise} className="imgSizing" alt="ruido blanco" />
           </div>
         </div>
       </div>
