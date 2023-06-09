@@ -26,8 +26,12 @@ function App() {
   console.log('currentLivestream: ', currentLivestream);
   const [stationName, setStationName] = useState("");
   const [youtubeChannal, setYoutubeChannal] = useState("");
-
-
+// IDEAS
+// agregar mas estaciones de radio 
+// usar useEffect para que se reproduzca automaticamente
+// agregar un boton de mute
+// agregar un boton de volumen
+// agregar un boton de pausa
 
   const start = () => {
     playLiveStream(false);
