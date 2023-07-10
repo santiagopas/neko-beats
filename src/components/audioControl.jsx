@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import ReactPlayer from "react-player";
 import mute from "../images/mute.png";
 import volumeOn from "../images/volumeOn.png";
+import { backgrounds } from "../helpers/backgrounds";
+
 
 let lastPlayedVolume = 0;
 
@@ -12,8 +14,7 @@ const AudioControls = ({
   playPauseImage,
   buttonClass2,
   LiveStreamAudio,
-  LiveStreamPlayPause,
-  livestream
+  LiveStreamPlayPause
 }) => {
   const handleMute = (e) => {
     let classNameVol = e.target.className;
@@ -36,6 +37,14 @@ const AudioControls = ({
   const [muteCheck2, setUnmute2] = useState("audioOnImg");
   const [volumeImg, setVolumeImg] = useState(volumeOn);
   const [volume, setVolume] = useState(1);
+
+  const [backgroundGift, setBackgroundGift] = useState('');
+
+  const cambiarImagen = () => {
+    console.log('cambiar imagen');
+    setBackgroundGift(backgrounds[Math.floor(Math.random() * backgrounds.length)]);
+
+  }
 
 
   return (
@@ -71,17 +80,26 @@ const AudioControls = ({
           />
         </div>
       </div>
+      <button type='button' onClick={cambiarImagen}>Next Img</button>
+      <button type='button' onClick={cambiarImagen}>Prev Img</button>
       {
-        LiveStreamPlayPause ? (
-            <ReactPlayer
-              className="liveStreamPlayer"
-              style={{ backgroundImage: "url(https://art.pixilart.com/sr26e544e4b579e.gif)" }}
-              playing={LiveStreamPlayPause}
-              volume={volume}
-              url={LiveStreamAudio}
-              controls={true}
-            />
-        ) : null
+        LiveStreamPlayPause ?
+          (
+            backgrounds.map((background) => {
+              setBackgroundGift(background);
+              <ReactPlayer
+                className="liveStreamPlayer"
+                style={{
+                  backgroundImage: `url(${backgroundGift})`
+                }}
+                playing={LiveStreamPlayPause}
+                volume={volume}
+                url={LiveStreamAudio}
+                controls={true}
+              />
+            })
+          )
+          : null
       }
     </>
   );
